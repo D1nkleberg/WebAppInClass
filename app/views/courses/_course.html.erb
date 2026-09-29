@@ -6,7 +6,7 @@
 
   <div>
     <strong>Department:</strong>
-    <%= course.department.name %>
+    <%= link_to course.department.name, department_path(course.department) %>
 
     <% if course.department.cool? %>
       <p>YES!!!!</p>
