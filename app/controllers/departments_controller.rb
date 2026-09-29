@@ -8,6 +8,7 @@ class DepartmentsController < ApplicationController
 
   # GET /departments/1 or /departments/1.json
   def show
+    @this_is_a_variable = "Foo/bar"
   end
 
   # GET /departments/new
