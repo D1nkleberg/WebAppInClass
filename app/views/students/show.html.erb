@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @student %>
+
+<h2>Courses</h2>
+
+<ul>
+  <% @student.courses.each do |course| %>
+    <li><%= course.name %></li>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to "Edit this student", edit_student_path(@student) %> |
+  <%= link_to "Back to students", students_path %>
+
+  <%= button_to "Destroy this student", @student, method: :delete %>
+</div>
