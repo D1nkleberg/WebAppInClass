@@ -7,3 +7,19 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+department = Department.create!(
+  :name => "Computer Science"
+)
+
+course = Course.create!(
+  :name => "Web Application Development",
+  :department => department
+)
+
+student = Student.create!(
+  :first_name => "Laney",
+  :last_name => "Stroup"
+)
+
+student.courses << course
