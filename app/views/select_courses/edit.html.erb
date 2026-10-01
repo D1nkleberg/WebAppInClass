@@ -1,0 +1,6 @@
+<h1>Select your courses</h1>
+
+<%= form_with(model: @student) do |form| %>
+  <%= form.collection_checkboxes :course_ids, Course.all, :id, :name %>
+  <%= form.button %>
+<% end %>
