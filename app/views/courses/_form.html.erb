@@ -11,17 +11,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, :class => "form-label" %>
+    <%= form.text_field :name, :class => "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :department_id, :class => "form-label" %>
+    <%= form.collection_select :department_id, Department.all, :id, :name, {}, :class => "form-select" %>
   </div>
 
   <div>
-    <%= form.label :department_id, style: "display: block" %>
-    <%= form.collection_select :department_id, Department.all, :id, :name %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit :class => "btn btn-primary" %>
+    <% if course.persisted? %>
+      <%= link_to "Cancel", course_path(course), :class => "btn btn-danger" %>
+    <% else %>
+      <%= link_to "Cancel", courses_path, :class => "btn btn-danger" %>
+    <% end %>
   </div>
 <% end %>
