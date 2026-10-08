@@ -57,28 +57,14 @@ Course.create!(
   :department => Department.find_by(name: "English")
 )
 
-Student.create!([
-  {
-    :first_name => "Laney",
-    :last_name => "Stroup"
-  },
-  {
-    :first_name => "Josiah",
-    :last_name => "Ewert"
-  },
-  {
-    :first_name => "Daniel",
-    :last_name => "Liao"
-  },
-  {
-    :first_name => "Daniel",
-    :last_name => "Sisay"
-  },
-  {
-    :first_name => "Derek",
-    :last_name => "Smith"
-  },
-])
+4.times do |n|
+  Student.create(
+    :first_name => "Test",
+    :last_name => "Student #{n}",
+    :email => "student#{n}@lms.local",
+    :password => "Pass1234"
+  )
+end
 
 Student.all.each do |s|
   s.courses << Course.all.sample
