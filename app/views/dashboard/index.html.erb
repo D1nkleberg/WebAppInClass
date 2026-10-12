@@ -1,0 +1,9 @@
+<h1>Dashboard</h1>
+
+<h2>My Courses</h2>
+
+<ul>
+  <% current_student.courses.each do |course| %>
+    <li><%= course.name %></li>
+  <% end %>
+</ul>
