@@ -57,6 +57,17 @@ Course.create!(
   :department => Department.find_by(name: "English")
 )
 
+# Assigments
+Course.all.each do |course|
+  3.times do |n|
+    Assignment.create!(
+      :title => "Assignment #{n}",
+      :description => "This is assignment #{n} for course #{course.name}",
+      course: course
+    )
+  end
+end
+
 4.times do |n|
   Student.create(
     :first_name => "Test",

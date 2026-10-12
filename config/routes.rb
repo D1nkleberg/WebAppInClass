@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :assignments
   devise_for :students
 
   resources :select_courses
