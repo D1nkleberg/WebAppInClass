@@ -7,3 +7,11 @@
     <li><%= course.name %></li>
   <% end %>
 </ul>
+
+<h2>My Assignments</h2>
+
+<ul>
+  <% current_student.assignments.each do |assignment| %>
+    <li><%= assignment.title %></li>
+  <% end %>
+</ul>

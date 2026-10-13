@@ -5,6 +5,7 @@ class Student < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_and_belongs_to_many :courses
+  has_many :assignments, :through => :courses
 
   def name
     first_name + " " + last_name
