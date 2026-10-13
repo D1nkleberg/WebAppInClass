@@ -1,0 +1,12 @@
+<% content_for :title, "Editing assignment submission" %>
+
+<h1>Editing assignment submission</h1>
+
+<%= render "form", assignment_submission: @assignment_submission %>
+
+<br>
+
+<div>
+  <%= link_to "Show this assignment submission", @assignment_submission %> |
+  <%= link_to "Back to assignment submissions", assignment_submissions_path %>
+</div>

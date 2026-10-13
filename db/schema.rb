@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_13_000112) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_13_001549) do
+  create_table "assignment_submissions", force: :cascade do |t|
+    t.integer "assignment_id", null: false
+    t.boolean "complete"
+    t.datetime "created_at", null: false
+    t.integer "student_id", null: false
+    t.string "text"
+    t.datetime "updated_at", null: false
+    t.index ["assignment_id"], name: "index_assignment_submissions_on_assignment_id"
+    t.index ["student_id"], name: "index_assignment_submissions_on_student_id"
+  end
+
   create_table "assignments", force: :cascade do |t|
     t.integer "course_id", null: false
     t.datetime "created_at", null: false
@@ -56,6 +67,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_13_000112) do
     t.index ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assignment_submissions", "assignments"
+  add_foreign_key "assignment_submissions", "students"
   add_foreign_key "assignments", "courses"
   add_foreign_key "courses", "departments"
 end

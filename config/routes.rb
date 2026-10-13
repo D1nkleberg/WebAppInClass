@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :assignment_submissions
   resources :assignments
   devise_for :students
 
