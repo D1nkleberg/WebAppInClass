@@ -13,13 +13,10 @@
 
   <div>
     <%= form.label :assignment_id, style: "display: block" %>
-    <%= form.text_field :assignment_id %>
+    <%= form.collection_select :assignment_id, current_student.assignments, :id, :title %>
   </div>
 
-  <div>
-    <%= form.label :student_id, style: "display: block" %>
-    <%= form.text_field :student_id %>
-  </div>
+  <%= form.hidden_field :student_id, :value => current_student.id %>
 
   <div>
     <%= form.label :text, style: "display: block" %>
