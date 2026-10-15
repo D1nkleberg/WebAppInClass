@@ -20,9 +20,9 @@ class AssignmentSubmissionsController < ApplicationController
   def edit
   end
 
-  # POST /assignment_submissions or /assignment_submissions.json
   def create
     @assignment_submission = AssignmentSubmission.new(assignment_submission_params)
+    @assignment_submission.assignment = @assignment
 
     respond_to do |format|
       if @assignment_submission.save
@@ -53,7 +53,7 @@ class AssignmentSubmissionsController < ApplicationController
     @assignment_submission.destroy!
 
     respond_to do |format|
-      format.html { redirect_to assignment_submissions_path, notice: "Assignment submission was successfully destroyed.", status: :see_other }
+      format.html { redirect_to assignment_assignment_submissions_path(@assignment_submission.assignment), notice: "Assignment submission was successfully destroyed.", status: :see_other }
       format.json { head :no_content }
     end
   end
@@ -71,6 +71,6 @@ class AssignmentSubmissionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def assignment_submission_params
-      params.expect(assignment_submission: [ :assignment_id, :student_id, :text, :complete ])
+      params.expect(assignment_submission: [ :student_id, :text, :complete ])
     end
 end
