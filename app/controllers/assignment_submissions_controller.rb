@@ -1,9 +1,10 @@
 class AssignmentSubmissionsController < ApplicationController
+  before_action :set_assignment, :only => [:index, :new, :create]
   before_action :set_assignment_submission, only: %i[ show edit update destroy ]
 
   # GET /assignment_submissions or /assignment_submissions.json
   def index
-    @assignment_submissions = AssignmentSubmission.all
+    @assignment_submissions = @assignment.submissions
   end
 
   # GET /assignment_submissions/1 or /assignment_submissions/1.json
@@ -58,6 +59,11 @@ class AssignmentSubmissionsController < ApplicationController
   end
 
   private
+
+    def set_assignment
+      @assignment = Assignment.find(params[:assignment_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_assignment_submission
       @assignment_submission = AssignmentSubmission.find(params.expect(:id))

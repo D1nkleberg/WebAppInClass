@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :assignment_submissions
-  resources :assignments
   devise_for :students
+
+  resources :assignments do
+    resources :assignment_submissions, :shallow => true
+  end
 
   resources :select_courses
 

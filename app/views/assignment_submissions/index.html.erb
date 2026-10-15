@@ -2,7 +2,7 @@
 
 <% content_for :title, "Assignment submissions" %>
 
-<h1>Assignment submissions</h1>
+<h1><%= @assignment.title %> - Submissions</h1>
 
 <div id="assignment_submissions">
   <% @assignment_submissions.each do |assignment_submission| %>
@@ -12,5 +12,3 @@
     </p>
   <% end %>
 </div>
-
-<%= link_to "New assignment submission", new_assignment_submission_path %>
