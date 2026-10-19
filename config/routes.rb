@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
   devise_for :students
 
-  resources :assignments do
-    resources :assignment_submissions, :shallow => true
+  scope(:main) do
+    resources :courses, :only => [:index, :show]
+
+    resources :assignments, :only => [:index, :show], :shallow => true do
+      resources :assignment_submissions, :name => :submissions, :shallow => true
+    end
+
+    resources :select_courses
   end
 
-  resources :select_courses
-
-  resources :students
-  resources :courses
-  resources :departments
+  scope(:admin) do
+    resources :students
+    resources :departments
+    resources :courses
+    resources :assignments
+  end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
