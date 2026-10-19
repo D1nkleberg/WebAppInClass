@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :students
 
-  scope(:main) do
+  namespace(:main) do
     resources :courses, :only => [:index, :show]
 
     resources :assignments, :only => [:index, :show], :shallow => true do

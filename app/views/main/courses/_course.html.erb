@@ -1,0 +1,16 @@
+<div id="<%= dom_id course %>">
+  <div>
+    <strong>Name:</strong>
+    <%= course.name %>
+  </div>
+
+  <div>
+    <strong>Department:</strong>
+    <%= course.department.name %>
+
+    <% if course.department.cool? %>
+      <p>YES!!!!</p>
+    <% end %>
+  </div>
+
+</div>

@@ -4,7 +4,7 @@
 
 <ul>
   <% current_student.courses.each do |course| %>
-    <li><%= course.name %></li>
+    <li><%= link_to course.name, main_course_path(course) %></li>
   <% end %>
 </ul>
 
@@ -12,6 +12,6 @@
 
 <ul>
   <% current_student.assignments.each do |assignment| %>
-    <li><%= assignment.title %></li>
+    <li><%= link_to assignment.title, main_assignment_path(assignment) %></li>
   <% end %>
 </ul>
