@@ -3,7 +3,7 @@ module Main
     before_action :set_assignment, only: %i[ show ]
 
     def index
-      @assignments = Assignment.all
+      @assignments = current_student.assignments
     end
 
     def show
