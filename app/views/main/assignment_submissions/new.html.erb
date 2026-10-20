@@ -1,0 +1,11 @@
+<% content_for :title, "New assignment submission" %>
+
+<h1><%= @assignment.title %> - New submission</h1>
+
+<%= render "form", assignment_submission: @assignment_submission %>
+
+<br>
+
+<div>
+  <%= link_to "Back to assignment submissions", assignment_assignment_submissions_path(@assignment) %>
+</div>

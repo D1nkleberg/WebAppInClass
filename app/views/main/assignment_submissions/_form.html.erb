@@ -1,0 +1,29 @@
+<%= form_with(model: assignment_submission, :url => assignment_assignment_submissions_path(@assignment)) do |form| %>
+  <% if assignment_submission.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(assignment_submission.errors.count, "error") %> prohibited this assignment_submission from being saved:</h2>
+
+      <ul>
+        <% assignment_submission.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :student_id, :value => current_student.id %>
+
+  <div>
+    <%= form.label :text, style: "display: block" %>
+    <%= form.text_field :text %>
+  </div>
+
+  <div>
+    <%= form.label :complete, style: "display: block" %>
+    <%= form.checkbox :complete %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
