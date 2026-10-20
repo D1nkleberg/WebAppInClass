@@ -8,6 +8,8 @@
   <% end %>
 </ul>
 
+<%= link_to "View All", main_courses_path %>
+
 <h2>My Assignments</h2>
 
 <ul>
@@ -15,3 +17,5 @@
     <li><%= link_to assignment.title, main_assignment_path(assignment) %></li>
   <% end %>
 </ul>
+
+<%= link_to "View All", main_assignments_path %>
