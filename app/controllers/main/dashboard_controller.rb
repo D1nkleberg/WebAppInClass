@@ -1,5 +1,5 @@
 module Main
-  class DashboardController < ApplicationController
+  class DashboardController < MainController
     def index
     end
   end
