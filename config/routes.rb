@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :courses, :only => [:index, :show]
 
     resources :assignments, :only => [:index, :show], :shallow => true do
-      resources :assignment_submissions, :name => :submissions, :shallow => true
+      resources :assignment_submissions, :as => :submissions, :path => :submissions, :shallow => true
     end
 
     resources :select_courses

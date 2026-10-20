@@ -2,6 +2,8 @@
 
 <%= render @assignment %>
 
+<%= link_to "Submissions", main_assignment_submissions_path(@assignment) %>
+
 <div>
   <%= link_to "Back to assignments", main_assignments_path %>
 </div>
