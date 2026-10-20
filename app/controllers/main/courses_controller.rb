@@ -3,7 +3,7 @@ module Main
     before_action :set_course, only: %i[ show ]
 
     def index
-      @courses = Course.all
+      @courses = current_student.courses
     end
 
     def show
