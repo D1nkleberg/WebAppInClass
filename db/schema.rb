@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_13_001549) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_22_003348) do
   create_table "assignment_submissions", force: :cascade do |t|
     t.integer "assignment_id", null: false
     t.boolean "complete"
@@ -27,6 +27,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_13_001549) do
     t.datetime "created_at", null: false
     t.text "description"
     t.datetime "due_date"
+    t.boolean "published"
+    t.datetime "published_at"
     t.string "title"
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_assignments_on_course_id"

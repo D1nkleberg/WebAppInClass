@@ -4,13 +4,26 @@
 
 <h1>Assignments</h1>
 
-<div id="assignments">
-  <% @assignments.each do |assignment| %>
-    <%= render assignment %>
-    <p>
-      <%= link_to "Show this assignment", assignment %>
-    </p>
-  <% end %>
-</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Course</th>
+      <th>Due Date</th>
+      <th>Published</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assignments.each do |assignment| %>
+      <tr id="assignments">
+        <td><%= link_to assignment.title, assignment_path(assignment) %></td>
+        <td><%= assignment.course.name %></td>
+        <td><%= assignment.due_date %></td>
+        <td><%= assignment.published? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New assignment", new_assignment_path %>
