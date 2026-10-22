@@ -11,6 +11,7 @@
       <th>Course</th>
       <th>Due Date</th>
       <th>Published</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -21,6 +22,7 @@
         <td><%= assignment.course.name %></td>
         <td><%= assignment.due_date %></td>
         <td><%= assignment.published? %></td>
+        <td><%= button_tag "Publish", :id => "publish_#{assignment.id}", :class => "publish-button" %></td>
       </tr>
     <% end %>
   </tbody>
