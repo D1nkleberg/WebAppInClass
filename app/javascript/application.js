@@ -2,11 +2,11 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-const buttons = document.querySelectorAll(".publish-button");
+document.addEventListener("click", (event) => { 
+  if (event.target.classList.contains("publish-button")) {
+    const button = event.target;
+    const id = button.id.match(/\d+/)[0];
 
-buttons[0].addEventListener("click", (event) => { 
-  const button = event.target;
-  const id = button.id.match(/\d+/)[0];
-
-  console.log(id);
+    console.log(id);
+  };
 })
