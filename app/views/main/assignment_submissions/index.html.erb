@@ -8,7 +8,7 @@
   <% @assignment_submissions.each do |assignment_submission| %>
     <%= render assignment_submission %>
     <p>
-      <%= link_to "Show this assignment submission", assignment_submission %>
+      <%= link_to "Show this assignment submission", main_submission_path(assignment_submission) %>
     </p>
   <% end %>
 </div>

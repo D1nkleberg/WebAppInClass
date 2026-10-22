@@ -3,8 +3,8 @@
 <%= render @assignment_submission %>
 
 <div>
-  <%= link_to "Edit this assignment submission", edit_assignment_submission_path(@assignment_submission) %> |
-  <%= link_to "Back to assignment submissions", assignment_assignment_submissions_path(@assignment_submission.assignment) %>
+  <%= link_to "Edit this assignment submission", edit_main_submission_path(@assignment_submission) %> |
+  <%= link_to "Back to assignment submissions", main_assignment_submissions_path(@assignment_submission.assignment) %>
 
-  <%= button_to "Destroy this assignment submission", @assignment_submission, method: :delete %>
+  <%= button_to "Destroy this assignment submission", main_submission_path(@assignment_submission), method: :delete %>
 </div>

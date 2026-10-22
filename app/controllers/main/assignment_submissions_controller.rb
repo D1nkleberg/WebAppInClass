@@ -27,7 +27,7 @@ module Main
 
       respond_to do |format|
         if @assignment_submission.save
-          format.html { redirect_to @assignment_submission, notice: "Assignment submission was successfully created." }
+          format.html { redirect_to main_submission_path(@assignment_submission), notice: "Assignment submission was successfully created." }
           format.json { render :show, status: :created, location: @assignment_submission }
         else
           format.html { render :new, status: :unprocessable_content }
