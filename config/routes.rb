@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     resources :students
     resources :departments
     resources :courses
-    resources :assignments
+    resources :assignments do
+      patch :update_status, :on => :member
+    end
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
