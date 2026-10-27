@@ -1,6 +1,7 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: %i[ show edit update destroy ]
   before_action :set_course, :only => [:index, :new, :create]
+  skip_forgery_protection
 
   # GET /assignments or /assignments.json
   def index
@@ -59,7 +60,7 @@ class AssignmentsController < ApplicationController
   end
 
   def update_status
-
+    render json: { new_value: params[:published] }
   end
 
   private
