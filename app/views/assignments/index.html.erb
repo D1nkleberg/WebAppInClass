@@ -2,7 +2,7 @@
 
 <% content_for :title, "Assignments" %>
 
-<h1>Assignments</h1>
+<h1><%= @course.name %> Assignments</h1>
 
 <table class="table table-striped">
   <thead>
@@ -28,4 +28,4 @@
   </tbody>
 </table>
 
-<%= link_to "New assignment", new_assignment_path %>
+<%= link_to "New assignment", new_course_assignment_path(@course) %>

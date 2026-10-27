@@ -16,9 +16,10 @@ Rails.application.routes.draw do
   scope(:admin) do
     resources :students
     resources :departments
-    resources :courses
-    resources :assignments do
-      patch :update_status, :on => :member
+    resources :courses do
+      resources :assignments, :shallow => true do
+        patch :update_status, :on => :member
+      end
     end
   end
 

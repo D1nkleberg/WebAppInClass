@@ -4,7 +4,7 @@
 
 <div>
   <%= link_to "Edit this assignment", edit_assignment_path(@assignment) %> |
-  <%= link_to "Back to assignments", assignments_path %>
+  <%= link_to "Back to assignments", course_assignments_path(@assignment.course) %>
 
   <%= button_to "Destroy this assignment", @assignment, method: :delete %>
 </div>

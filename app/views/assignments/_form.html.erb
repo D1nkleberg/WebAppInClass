@@ -1,4 +1,4 @@
-<%= form_with(model: assignment) do |form| %>
+<%= form_with(model: assignment, :url => assignment_form_path(assignment)) do |form| %>
   <% if assignment.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
