@@ -15,13 +15,13 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="assignments">
     <% @assignments.each do |assignment| %>
-      <tr id="assignments">
+      <tr id="<%= dom_id assignment %>">
         <td><%= link_to assignment.title, assignment_path(assignment) %></td>
         <td><%= assignment.course.name %></td>
         <td><%= assignment.due_date %></td>
-        <td><%= assignment.published? %></td>
+        <td class="published-text"><%= assignment.published? %></td>
         <td>
           <%= button_tag "Publish", :id => "publish_#{assignment.id}", :class => "publish-button" %>
           <%= button_tag "Unpublish", :id => "unpublish_#{assignment.id}", :class => "unpublish-button" %>

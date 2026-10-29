@@ -3,6 +3,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 async function update_status(id, new_value) {
+  const published_text = document.querySelector(`#assignment_${id} .published-text`);
+
   const url = `/admin/assignments/${id}/update_status`;
   const headers = {
     "Content-Type": "application/json",
@@ -17,7 +19,8 @@ async function update_status(id, new_value) {
     body: JSON.stringify(params)
   });
 
-  console.log(response);
+  const json = await response.json();
+  published_text.innerText = json["published"];
 };
 
 // Listeners
