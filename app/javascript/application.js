@@ -2,13 +2,13 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-async function update_status(id) {
+async function update_status(id, new_value) {
   const url = `/admin/assignments/${id}/update_status`;
   const headers = {
     "Content-Type": "application/json",
   }
   const params = {
-    published: "true"
+    published: new_value
   }
 
   const response = await fetch(url, {
@@ -20,12 +20,23 @@ async function update_status(id) {
   console.log(response);
 };
 
+// Listeners
 document.addEventListener("click", (event) => { 
   if (event.target.classList.contains("publish-button")) {
     const button = event.target;
     const id = button.id.match(/\d+/)[0];
 
     console.log(id);
-    update_status(id);
+    update_status(id, true);
+  };
+});
+
+document.addEventListener("click", (event) => { 
+  if (event.target.classList.contains("unpublish-button")) {
+    const button = event.target;
+    const id = button.id.match(/\d+/)[0];
+
+    console.log(id);
+    update_status(id, false);
   };
 });

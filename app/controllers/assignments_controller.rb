@@ -60,7 +60,7 @@ class AssignmentsController < ApplicationController
   end
 
   def update_status
-    @assignment.published = true
+    @assignment.published = params[:published]
     @assignment.save
 
     render :show, formats: [:json]
