@@ -63,7 +63,7 @@ class AssignmentsController < ApplicationController
     @assignment.published = true
     @assignment.save
 
-    render json: { published: params[:published], id: @assignment.id }
+    render :show, formats: [:json]
   end
 
   private
