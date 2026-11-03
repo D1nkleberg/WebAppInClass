@@ -17,3 +17,28 @@
 legend {
   float: none !important;
 }
+
+#assignments {
+  tr {
+    .publish-button {
+      display: block;
+    }
+    .unpublish-button {
+      display: none;
+    }
+    .status {
+      color: gray;
+    }
+  }
+  tr.published {
+    .publish-button {
+      display: none;
+    }
+    .unpublish-button {
+      display: block;
+    }
+    .status {
+      color: green;
+    }
+  }
+}

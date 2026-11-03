@@ -3,7 +3,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 async function update_status(id, new_value) {
-  const published_text = document.querySelector(`#assignment_${id} .published-text`);
+  const element = document.querySelector(`#assignment_${id}`);
+  const status_text = document.querySelector(`#assignment_${id} .status`);
 
   const url = `/admin/assignments/${id}/update_status`;
   const headers = {
@@ -20,7 +21,14 @@ async function update_status(id, new_value) {
   });
 
   const json = await response.json();
-  published_text.innerText = json["published"];
+
+  status_text.innerText = json["published"];
+
+  if (new_value) {
+    element.classList.add("published");
+  } else {
+    element.classList.remove("published");
+  };
 };
 
 // Listeners
