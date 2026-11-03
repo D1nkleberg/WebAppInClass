@@ -17,7 +17,7 @@
 
   <tbody id="assignments">
     <% @assignments.each do |assignment| %>
-      <tr id="<%= dom_id assignment %>">
+      <tr id="<%= dom_id assignment %>" class="<%= "published" if assignment.published? %>">
         <td><%= link_to assignment.title, assignment_path(assignment) %></td>
         <td><%= assignment.course.name %></td>
         <td><%= assignment.due_date %></td>
