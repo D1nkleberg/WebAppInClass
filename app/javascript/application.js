@@ -6,7 +6,7 @@ async function update_status(id, new_value) {
   const element = document.querySelector(`#assignment_${id}`);
   const status_text = document.querySelector(`#assignment_${id} .status`);
 
-  const url = `/admin/assignments/${id}/update_status`;
+  const url = `/assignments/${id}/update_status`;
   const headers = {
     "Content-Type": "application/json",
   }
