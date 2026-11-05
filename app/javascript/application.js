@@ -77,6 +77,20 @@ async function clearAssignmentForm() {
   modal_body.innerHTML = null;
 }
 
+async function submitAssignmentForm() {
+  const url = `/courses/1/assignments`;
+
+  const assignment_form = document.querySelector("#assignment-form");
+  const formData = new FormData(assignment_form);
+
+  const response = await fetch(url, {
+    method: "POST",
+    body: formData
+  });
+
+  const json = await response.json();
+};
+
 // - Listeners
 document.addEventListener("show.bs.modal", (event) => {
   getAssignmentForm();
@@ -86,6 +100,11 @@ document.addEventListener("hidden.bs.modal", (event) => {
   clearAssignmentForm();
 });
 
+document.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  submitAssignmentForm();
+});
 
 
 
