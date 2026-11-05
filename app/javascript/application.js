@@ -1,5 +1,6 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import "@hotwired/turbo-rails"
+// import "@hotwired/turbo-rails"
+
 import "controllers"
 
 async function update_status(id, new_value) {
@@ -51,3 +52,49 @@ document.addEventListener("click", (event) => {
     update_status(id, false);
   };
 });
+
+
+async function getAssignmentForm() {
+  const url = "/courses/1/assignments/new";
+
+  const response = await fetch(url, {
+  });
+
+  const htmlString = await response.text();
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlString, 'text/html');
+  const form = doc.querySelector("#assignment-form");
+
+  const modal_body = document.querySelector(".modal-body");
+  modal_body.append(form);
+};
+
+// Assignments Modal
+document.addEventListener("click", (event) => {
+  if (event.target.id == "new-assignment-button") {
+    event.preventDefault();
+
+    getAssignmentForm();
+  };
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
