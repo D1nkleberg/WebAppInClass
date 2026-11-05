@@ -13,13 +13,12 @@ Rails.application.routes.draw do
     root "dashboard#index"
   end
 
-  scope(:admin) do
-    resources :students
-    resources :departments
-    resources :courses do
-      resources :assignments, :shallow => true do
-        patch :update_status, :on => :member
-      end
+  # Admin
+  resources :students
+  resources :departments
+  resources :courses do
+    resources :assignments, :shallow => true do
+      patch :update_status, :on => :member
     end
   end
 
@@ -31,5 +30,5 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
+  root "courses#index"
 end
