@@ -54,6 +54,8 @@ document.addEventListener("click", (event) => {
 });
 
 
+// Assignments Modal
+// - Functions
 async function getAssignmentForm() {
   const url = "/courses/1/assignments/new";
 
@@ -70,13 +72,18 @@ async function getAssignmentForm() {
   modal_body.append(form);
 };
 
-// Assignments Modal
-document.addEventListener("click", (event) => {
-  if (event.target.id == "new-assignment-button") {
-    event.preventDefault();
+async function clearAssignmentForm() {
+  const modal_body = document.querySelector(".modal-body");
+  modal_body.innerHTML = null;
+}
 
-    getAssignmentForm();
-  };
+// - Listeners
+document.addEventListener("show.bs.modal", (event) => {
+  getAssignmentForm();
+});
+
+document.addEventListener("hidden.bs.modal", (event) => {
+  clearAssignmentForm();
 });
 
 

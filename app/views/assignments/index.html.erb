@@ -31,6 +31,8 @@
   </tbody>
 </table>
 
+<%= link_to "New assignment", new_course_assignment_path(@course), :id => "new-assignment-button" %>
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Launch demo modal
@@ -45,7 +47,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= link_to "New assignment", new_course_assignment_path(@course), :id => "new-assignment-button" %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
