@@ -88,7 +88,9 @@ async function submitAssignmentForm() {
     body: formData
   });
 
-  const json = await response.json();
+  const html = await response.text();
+
+  console.log(html);
 };
 
 // - Listeners
