@@ -93,11 +93,19 @@ async function submitAssignmentForm() {
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlString, 'text/html');
 
-  const row = doc.querySelector(".assignment-html")
+  if (response.ok) {
+    const row = doc.querySelector(".assignment-html")
 
-  const table = document.getElementById("assignments");
+    const table = document.getElementById("assignments");
 
-  table.append(row);
+    table.append(row);
+  } else {
+    const form = doc.querySelector("#assignment-form");
+
+    const modal_body = document.querySelector(".modal-body");
+    modal_body.innerHTML = null;
+    modal_body.append(form);
+  };
 };
 
 // - Listeners
