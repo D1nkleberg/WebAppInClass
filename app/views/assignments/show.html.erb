@@ -1,6 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @assignment %>
+<table>
+  <tbody>
+    <%= render @assignment %>
+  </tbody>
+</table>
+
 
 <div>
   <%= link_to "Edit this assignment", edit_assignment_path(@assignment) %> |

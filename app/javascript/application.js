@@ -88,9 +88,16 @@ async function submitAssignmentForm() {
     body: formData
   });
 
-  const html = await response.text();
+  const htmlString = await response.text();
 
-  console.log(html);
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlString, 'text/html');
+
+  const row = doc.querySelector(".assignment-html")
+
+  const table = document.getElementById("assignments");
+
+  table.append(row);
 };
 
 // - Listeners
