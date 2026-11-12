@@ -15,7 +15,7 @@ async function getAssignmentForm(url) {
   const modal_body = document.querySelector(".modal-body");
   modal_body.append(form);
 
-  const modal = new bootstrap.Modal('#exampleModal');
+  const modal = bootstrap.Modal.getOrCreateInstance("#exampleModal");
   modal.show();
 };
 
@@ -46,6 +46,9 @@ async function submitAssignmentForm() {
     const table = document.getElementById("assignments");
 
     table.append(row);
+
+    const modal = bootstrap.Modal.getOrCreateInstance("#exampleModal");
+    modal.hide();
   } else {
     const form = doc.querySelector("#assignment-form");
 
