@@ -12,7 +12,7 @@ async function getAssignmentForm(url) {
   const doc = parser.parseFromString(htmlString, 'text/html');
   const form = doc.querySelector("#assignment-form");
 
-  const modal_body = document.querySelector(".modal-body");
+  const modal_body = document.querySelector("#assignment-modal-content");
   modal_body.append(form);
 
   const modal = bootstrap.Modal.getOrCreateInstance("#exampleModal");
@@ -20,7 +20,7 @@ async function getAssignmentForm(url) {
 };
 
 async function clearAssignmentForm() {
-  const modal_body = document.querySelector(".modal-body");
+  const modal_body = document.querySelector("#assignment-modal-content");
   modal_body.innerHTML = null;
 }
 
@@ -52,7 +52,7 @@ async function submitAssignmentForm() {
   } else {
     const form = doc.querySelector("#assignment-form");
 
-    const modal_body = document.querySelector(".modal-body");
+    const modal_body = document.querySelector("#assignment-modal-content");
     modal_body.innerHTML = null;
     modal_body.append(form);
   };
