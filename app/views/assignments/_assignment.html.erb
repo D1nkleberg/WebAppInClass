@@ -1,5 +1,10 @@
 <tr id="<%= dom_id assignment %>" class="assignment-html <%= "published" if assignment.published? %>">
-  <td><%= link_to assignment.title, assignment_path(assignment) %></td>
+  <td>
+    <%= link_to assignment.title, assignment_path(assignment) %>
+    <div>
+      <%= link_to "Edit", edit_assignment_path(assignment), :class => "assignment-button" %>
+    </div>
+  </td>
   <td><%= assignment.course.name %></td>
   <td><%= assignment.due_date %></td>
   <td class="status"><%= assignment.published? %></td>

@@ -28,6 +28,7 @@ async function submitAssignmentForm() {
 
   const assignment_form = document.querySelector("#assignment-form");
   const url = assignment_form.getAttribute("action");
+  const existing_item = /\d$/.test(url)
   const formData = new FormData(assignment_form);
 
   const response = await fetch(url, {
@@ -43,9 +44,14 @@ async function submitAssignmentForm() {
   if (response.ok) {
     const row = doc.querySelector(".assignment-html")
 
-    const table = document.getElementById("assignments");
-
-    table.append(row);
+    if (existing_item) {
+      const id = row.id;
+      const old_row = document.getElementById(id);
+      old_row.replaceWith(row);
+    } else {
+      const table = document.getElementById("assignments");
+      table.append(row);
+    };
 
     const modal = bootstrap.Modal.getOrCreateInstance("#exampleModal");
     modal.hide();
@@ -60,7 +66,7 @@ async function submitAssignmentForm() {
 
 // - Listeners
 document.addEventListener("click", (event) => {
-  if (event.target.id == "new-assignment-button") {
+  if (event.target.classList.contains("assignment-button")) {
     event.preventDefault();
 
     const link = event.target;
