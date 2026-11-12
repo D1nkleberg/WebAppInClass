@@ -3,5 +3,8 @@
 
 import "controllers"
 
+import * as bootstrap from 'bootstrap'
+window.bootstrap = bootstrap
+
 import "update_status"
 import "assignment_modal"
