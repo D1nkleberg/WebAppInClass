@@ -58,12 +58,8 @@ async function submitAssignmentForm() {
 };
 
 // - Listeners
-//document.addEventListener("show.bs.modal", (event) => {
-//  getAssignmentForm();
-//});
-
 document.addEventListener("click", (event) => {
-  if (event.target.id = "new-assignment-button") {
+  if (event.target.id == "new-assignment-button") {
     event.preventDefault();
 
     getAssignmentForm();
