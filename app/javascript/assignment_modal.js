@@ -2,9 +2,7 @@
 import * as bootstrap from 'bootstrap'
 
 // - Functions
-async function getAssignmentForm() {
-  const url = "/courses/1/assignments/new";
-
+async function getAssignmentForm(url) {
   const response = await fetch(url, {
   });
 
@@ -27,9 +25,9 @@ async function clearAssignmentForm() {
 }
 
 async function submitAssignmentForm() {
-  const url = `/courses/1/assignments`;
 
   const assignment_form = document.querySelector("#assignment-form");
+  const url = assignment_form.getAttribute("action");
   const formData = new FormData(assignment_form);
 
   const response = await fetch(url, {
@@ -62,7 +60,10 @@ document.addEventListener("click", (event) => {
   if (event.target.id == "new-assignment-button") {
     event.preventDefault();
 
-    getAssignmentForm();
+    const link = event.target;
+    const url = link.getAttribute("href");
+
+    getAssignmentForm(url);
   };
 });
 
