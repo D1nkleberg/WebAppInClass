@@ -1,4 +1,6 @@
 // Assignments Modal
+import * as bootstrap from 'bootstrap'
+
 // - Functions
 async function getAssignmentForm() {
   const url = "/courses/1/assignments/new";
@@ -14,6 +16,9 @@ async function getAssignmentForm() {
 
   const modal_body = document.querySelector(".modal-body");
   modal_body.append(form);
+
+  const modal = new bootstrap.Modal('#exampleModal');
+  modal.show();
 };
 
 async function clearAssignmentForm() {
@@ -53,8 +58,16 @@ async function submitAssignmentForm() {
 };
 
 // - Listeners
-document.addEventListener("show.bs.modal", (event) => {
-  getAssignmentForm();
+//document.addEventListener("show.bs.modal", (event) => {
+//  getAssignmentForm();
+//});
+
+document.addEventListener("click", (event) => {
+  if (event.target.id = "new-assignment-button") {
+    event.preventDefault();
+
+    getAssignmentForm();
+  };
 });
 
 document.addEventListener("hidden.bs.modal", (event) => {
